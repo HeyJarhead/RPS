@@ -11,7 +11,11 @@
         // create welcome Message
         console.log("Hello, welcome to my Rock, Paper, Scissors game! \nStart by entering your choice of either Rock, Paper or Scissors.")
         // prompt to get user result
-        const userInput = prompt("Enter here:");
+        //var userInput = prompt("Enter here:");
+        userInput = "Paper";
+        var computerInput = getComputerResult();
+        //getPlayerInput(userInput);
+        console.log(playRound(userInput, computerInput));
         /// get computer results
         function getComputerResult() {
             var answer;
@@ -19,7 +23,7 @@
             if (randomChoice <= 3){
                 answer = "Rock";
                 return answer;
-            } else if(randomChoice > 3 && randomChoice <= 7){
+            } else if(randomChoice > 3 && randomChoice <= 6){
                 answer = "Paper";
                 return answer;
             } else if (randomChoice > 7){
@@ -28,7 +32,7 @@
             }
         }
         // get user input 
-        function getPlayerInput(playerchoice){
+        function getPlayerInput(playerChoice){
             if (playerChoice === "rock" || "Rock" || "ROCK" || "rOcK"){
             playerChoice = "Rock";
             } else if (playerChoice === "paper" || "Paper" || "PAPER" || "pApeR"){
@@ -41,17 +45,17 @@
         function playRound(playerSelection, computerSelection){
             // if statements
             if (playerSelection === "Paper" && computerSelection === "Rock"){
-                console.log("You Win! Paper beats Rock!")
+                console.log("Computer chose Rock\nYou Win! Paper beats Rock!")
             } else if (playerSelection === "Rock" && computerSelection === "Scissors"){
-                console.log("You Win! Rock beats Scissors!")
+                console.log("Computer chose Scissors\nYou Win! Rock beats Scissors!")
             } else if (playerSelection === "Scissors" && computerSelection === "Paper"){
-                console.log("You Win! Scissors beat Paper!")
+                console.log("Computer chose Paper\nYou Win! Scissors beat Paper!")
             }  else if (playerSelection === "Rock" && computerSelection === "Paper"){
-                console.log("You Lose! Paper beats Rock!")
+                console.log("Computer chose Paper\nYou Lose! Paper beats Rock!")
             }  else if (playerSelection === "Scissors" && computerSelection === "Rock"){
-                console.log("You Lose! Rock beat Scissors!")
+                console.log("Computer chose Rock\nYou Lose! Rock beat Scissors!")
             } else if (playerSelection === "Paper" && computerSelection === "Scissors"){
-                console.log("You Lose! Scissors beat paper!")
+                console.log("Computer chose Scissors\nYou Lose! Scissors beat paper!")
             } else if (playerSelection === computerSelection){
                 console.log("You both chose the same thing, Tie!")
             }
@@ -63,10 +67,7 @@
             // computer beats paper 
             // error
         }
-        var playerInput = prompt("Please enter your choice: ")
-        var computerInput = getComputerResult();
-        getPlayerInput(playerInput);
-        playRound(playerInput, computerInput);
+       
 
         // return the result 
         // after 5 games put ending result
