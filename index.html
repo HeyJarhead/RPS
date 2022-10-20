@@ -9,10 +9,31 @@
 <body>
     <script>
         // create welcome Message
-        console.log("Hello, welcome to my Rock, Paper, Scissors game! /n Start by entering your choice of either Rock, Paper or Scissors.")
-        
+        console.log("Hello, welcome to my Rock, Paper, Scissors game! \nStart by entering your choice of either Rock, Paper or Scissors.")
+        // prompt to get user result
+        const userInput = prompt("Enter here:");
+        /// get computer results
+        function getComputerResult() {
+            var answer;
+            let randomChoice = Math.floor(Math.random()* 10 + 1);
+            if (randomChoice <= 3){
+                answer = "Rock";
+                return answer;
+            } else if(randomChoice > 3 && randomChoice <= 7){
+                answer = "Paper";
+                return answer;
+            } else if (randomChoice > 7){
+                answer = "Scissors";
+                return answer;
+            }
+        }
         // get user input 
-        // generate computer rng input 
+        function playerselection(playerchoice){
+            let playerChoice = prompt("Please enter your choice: ")
+            if (playerChoice === "rock" || "Rock" || "ROCK" || "rOcK"){
+            playerChoice = "rock";
+            }
+        }
         // compare choices 
         // return the result 
         // after 5 games put ending result
