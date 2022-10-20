@@ -11,8 +11,8 @@
         // create welcome Message
         console.log("Hello, welcome to my Rock, Paper, Scissors game! \nStart by entering your choice of either Rock, Paper or Scissors.")
         // prompt to get user result
-        //var userInput = prompt("Enter here:");
-        userInput = "Paper";
+        var userInput = prompt("Enter here:").toLowerCase();
+        //userInput = "Paper";
         var computerInput = getComputerResult();
         //getPlayerInput(userInput);
         console.log(playRound(userInput, computerInput));
@@ -33,11 +33,11 @@
         }
         // get user input 
         function getPlayerInput(playerChoice){
-            if (playerChoice === "rock" || "Rock" || "ROCK" || "rOcK"){
+            if (playerChoice === "rock"){
             playerChoice = "Rock";
-            } else if (playerChoice === "paper" || "Paper" || "PAPER" || "pApeR"){
+            } else if (playerChoice === "paper"){
             playerChoice = "Paper";
-            } else if (playerChoice === "scissors" || "Scissors" || "SCISSORS" || "sCiSsOrS"){
+            } else if (playerChoice === "scissors"){
             playerChoice = "Scissors";
             } else return null;
         }
