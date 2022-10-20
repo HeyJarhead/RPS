@@ -28,13 +28,46 @@
             }
         }
         // get user input 
-        function playerselection(playerchoice){
-            let playerChoice = prompt("Please enter your choice: ")
+        function getPlayerInput(playerchoice){
             if (playerChoice === "rock" || "Rock" || "ROCK" || "rOcK"){
-            playerChoice = "rock";
-            }
+            playerChoice = "Rock";
+            } else if (playerChoice === "paper" || "Paper" || "PAPER" || "pApeR"){
+            playerChoice = "Paper";
+            } else if (playerChoice === "scissors" || "Scissors" || "SCISSORS" || "sCiSsOrS"){
+            playerChoice = "Scissors";
+            } else return null;
         }
         // compare choices 
+        function playRound(playerSelection, computerSelection){
+            // if statements
+            if (playerSelection === "Paper" && computerSelection === "Rock"){
+                console.log("You Win! Paper beats Rock!")
+            } else if (playerSelection === "Rock" && computerSelection === "Scissors"){
+                console.log("You Win! Rock beats Scissors!")
+            } else if (playerSelection === "Scissors" && computerSelection === "Paper"){
+                console.log("You Win! Scissors beat Paper!")
+            }  else if (playerSelection === "Rock" && computerSelection === "Paper"){
+                console.log("You Lose! Paper beats Rock!")
+            }  else if (playerSelection === "Scissors" && computerSelection === "Rock"){
+                console.log("You Lose! Rock beat Scissors!")
+            } else if (playerSelection === "Paper" && computerSelection === "Scissors"){
+                console.log("You Lose! Scissors beat paper!")
+            } else if (playerSelection === computerSelection){
+                console.log("You both chose the same thing, Tie!")
+            }
+            // User beats rock 
+            // user beats scissors
+            // user beats papper
+            // computer beats rock 
+            // computer beats scissors
+            // computer beats paper 
+            // error
+        }
+        var playerInput = prompt("Please enter your choice: ")
+        var computerInput = getComputerResult();
+        getPlayerInput(playerInput);
+        playRound(playerInput, computerInput);
+
         // return the result 
         // after 5 games put ending result
     </script>
