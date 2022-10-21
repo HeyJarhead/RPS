@@ -11,11 +11,13 @@
         // create welcome Message
         console.log("Hello, welcome to my Rock, Paper, Scissors game! \nStart by entering your choice of either Rock, Paper or Scissors.")
         // prompt to get user result
-        var userInput = prompt("Enter here:").toLowerCase();
+        var promptInput = prompt("Enter here:").toLowerCase();
+        userInput = getPlayerInput(promptInput);
         //userInput = "Paper";
         var computerInput = getComputerResult();
         //getPlayerInput(userInput);
-        console.log(playRound(userInput, computerInput));
+        var gameResult = playRound(userInput,computerInput);
+        console.log(gameResult);
         /// get computer results
         function getComputerResult() {
             var answer;
@@ -26,7 +28,7 @@
             } else if(randomChoice > 3 && randomChoice <= 6){
                 answer = "Paper";
                 return answer;
-            } else if (randomChoice > 7){
+            } else if (randomChoice > 6){
                 answer = "Scissors";
                 return answer;
             }
@@ -35,10 +37,13 @@
         function getPlayerInput(playerChoice){
             if (playerChoice === "rock"){
             playerChoice = "Rock";
+            return playerChoice;
             } else if (playerChoice === "paper"){
-            playerChoice = "Paper";
+            playerChoice = "Paper"
+            return playerChoice;
             } else if (playerChoice === "scissors"){
             playerChoice = "Scissors";
+            return playerChoice;
             } else return null;
         }
         // compare choices 
@@ -58,6 +63,8 @@
                 console.log("Computer chose Scissors\nYou Lose! Scissors beat paper!")
             } else if (playerSelection === computerSelection){
                 console.log("You both chose the same thing, Tie!")
+            } else if (playerSelection === null){
+                console.log("Your choice is not valid, Computer Wins!")
             }
             // User beats rock 
             // user beats scissors
