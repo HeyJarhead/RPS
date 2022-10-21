@@ -76,15 +76,34 @@
         }
        function game(){
         // create a for loop to create a 5 round game 
+        for (let i = 0; i < 5; i++){
+            console.log("Round "+ roundCounter + ":")
+            var promptInput = prompt("Enter here:").toLowerCase();
+            userInput = getPlayerInput(promptInput);
+            console.log("You chose: " + userInput)
+            var computerInput = getComputerResult();
+            var gameResult = playRound(userInput,computerInput);
+        console.log(gameResult);
+        }
         // call userInput
         // call computer intput 
         // call playRound 
         // if computer wins add point to computer
         // if player wins add point to player 
         // after game ends show result of the game
+        // if player has more points, the player wins 
+        // if the computer has more points, the computer wins
 
        }
-
+       function computerBoard(){
+        computerWins++;
+       }
+       function userBoard(){
+        userWins++;
+       }
+var roundCounter = 1;
+var userWins = 0;
+var computerWins = 0;
         // return the result 
         // after 5 games put ending result
     </script>
