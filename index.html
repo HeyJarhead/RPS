@@ -10,6 +10,9 @@
     <script>
         // create welcome Message
         console.log("Hello, welcome to my Rock, Paper, Scissors game! \nStart by entering your choice of either Rock, Paper or Scissors.")
+
+
+        /////// TEST CODE ////////////////////
         // prompt to get user result
         // var promptInput = prompt("Enter here:").toLowerCase();
         // userInput = getPlayerInput(promptInput);
@@ -19,6 +22,15 @@
         // var gameResult = playRound(userInput,computerInput);
         // console.log(gameResult);
         // /// get computer results
+
+        ////////// Main Game Call /////////////////////
+        // Establish Global variables
+        var roundCounter = 1;
+        var userWins = 0;
+        var computerWins = 0;
+        game();
+
+        // get the Random Computer choice
         function getComputerResult() {
             var answer;
             let randomChoice = Math.floor(Math.random()* 10 + 1);
@@ -33,7 +45,7 @@
                 return answer;
             }
         }
-        // get user input 
+        // get user input  
         function getPlayerInput(playerChoice){
             if (playerChoice === "rock"){
             playerChoice = "Rock";
@@ -81,6 +93,7 @@
             // computer beats paper 
             // error
         }
+        //// Main game funtion
        function game(){
         // create a for loop to create a 5 round game 
         for (let i = 0; i < 5; i++){
@@ -89,8 +102,7 @@
             userInput = getPlayerInput(promptInput);
             console.log("You chose: " + userInput)
             var computerInput = getComputerResult();
-            var gameResult = playRound(userInput,computerInput);
-        console.log(gameResult);
+            playRound(userInput,computerInput);
         roundCounter++;
         }
         if (userWins > computerWins){
@@ -108,15 +120,15 @@
         // if the computer has more points, the computer wins
 
        }
+       /// adds point to computer wins
        function computerBoard(){
         computerWins++;
        }
+       // adds point to User
        function userBoard(){
         userWins++;
        }
-var roundCounter = 1;
-var userWins = 0;
-var computerWins = 0;
+
         // return the result 
         // after 5 games put ending result
     </script>
