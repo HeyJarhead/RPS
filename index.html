@@ -11,14 +11,14 @@
         // create welcome Message
         console.log("Hello, welcome to my Rock, Paper, Scissors game! \nStart by entering your choice of either Rock, Paper or Scissors.")
         // prompt to get user result
-        var promptInput = prompt("Enter here:").toLowerCase();
-        userInput = getPlayerInput(promptInput);
-        //userInput = "Paper";
-        var computerInput = getComputerResult();
-        //getPlayerInput(userInput);
-        var gameResult = playRound(userInput,computerInput);
-        console.log(gameResult);
-        /// get computer results
+        // var promptInput = prompt("Enter here:").toLowerCase();
+        // userInput = getPlayerInput(promptInput);
+        // // //userInput = "Paper";
+        // var computerInput = getComputerResult();
+        // // //getPlayerInput(userInput);
+        // var gameResult = playRound(userInput,computerInput);
+        // console.log(gameResult);
+        // /// get computer results
         function getComputerResult() {
             var answer;
             let randomChoice = Math.floor(Math.random()* 10 + 1);
@@ -51,20 +51,27 @@
             // if statements
             if (playerSelection === "Paper" && computerSelection === "Rock"){
                 console.log("Computer chose Rock\nYou Win! Paper beats Rock!")
+                userBoard();
             } else if (playerSelection === "Rock" && computerSelection === "Scissors"){
                 console.log("Computer chose Scissors\nYou Win! Rock beats Scissors!")
+                userBoard();
             } else if (playerSelection === "Scissors" && computerSelection === "Paper"){
                 console.log("Computer chose Paper\nYou Win! Scissors beat Paper!")
+                userBoard();
             }  else if (playerSelection === "Rock" && computerSelection === "Paper"){
                 console.log("Computer chose Paper\nYou Lose! Paper beats Rock!")
+                computerBoard();
             }  else if (playerSelection === "Scissors" && computerSelection === "Rock"){
                 console.log("Computer chose Rock\nYou Lose! Rock beat Scissors!")
+                computerBoard();
             } else if (playerSelection === "Paper" && computerSelection === "Scissors"){
                 console.log("Computer chose Scissors\nYou Lose! Scissors beat paper!")
+                computerBoard();
             } else if (playerSelection === computerSelection){
                 console.log("You both chose the same thing, Tie!")
             } else if (playerSelection === null){
                 console.log("Your choice is not valid, Computer Wins!")
+                computerBoard();
             }
             // User beats rock 
             // user beats scissors
@@ -84,6 +91,12 @@
             var computerInput = getComputerResult();
             var gameResult = playRound(userInput,computerInput);
         console.log(gameResult);
+        roundCounter++;
+        }
+        if (userWins > computerWins){
+            console.log("You Have WON The Game! Final Result:\nUser: "+ userWins + " Computer: " + computerWins)
+        } else if (userWins < computerWins){
+            console.log("You Have LOST The Game! Final Result:\nUser: "+ userWins + " Computer: " + computerWins)
         }
         // call userInput
         // call computer intput 
