@@ -1,23 +1,34 @@
  // create welcome Message
  console.log("Hello, welcome to my Rock, Paper, Scissors game! \nStart by entering your choice of either Rock, Paper or Scissors.")
-
- /////// TEST CODE ////////////////////
- // prompt to get user result
- // var promptInput = prompt("Enter here:").toLowerCase();
- // userInput = getPlayerInput(promptInput);
- // // //userInput = "Paper";
- // var computerInput = getComputerResult();
- // // //getPlayerInput(userInput);
- // var gameResult = playRound(userInput,computerInput);
- // console.log(gameResult);
- // /// get computer results
-
- ////////// Main Game Call /////////////////////
- // Establish Global variables
  var roundCounter = 1;
  var userWins = 0;
  var computerWins = 0;
- game();
+
+const buttons = document.querySelectorAll('button');
+
+/// Event Listeners 
+buttons.forEach((button) => {
+    var playerChoice;
+    var computerChoice;
+    // button.addEventListener('click', ()=> {
+    //     if (button.id === 'rock'){
+    //         playerChoice = 'rock';
+    //         getPlayerInput(playerChoice);
+    //         var computerReuslt = getComputerResult();
+    //         playRound(playerChoice, computerReuslt);
+    //     }
+    // })
+    button.addEventListener('click', ()=>{
+        playerChoice = getPlayerInput(button.id);
+        computerChoice = getComputerResult();
+        playRound(playerChoice,computerChoice);
+    })
+})
+
+ ////////// Main Game Call /////////////////////
+ // Establish Global variables
+
+ //game();
 
  // get the Random Computer choice
  function getComputerResult() {
@@ -85,15 +96,15 @@
  //// Main game funtion
 function game(){
  // create a for loop to create a 5 round game 
- for (let i = 0; i < 5; i++){
-     console.log("Round "+ roundCounter + ":")
-     var promptInput = prompt("Chose: Rock, Paper, Scissors\nEnter here:").toLowerCase();
-     userInput = getPlayerInput(promptInput);
-     console.log("You chose: " + userInput)
-     var computerInput = getComputerResult();
-     playRound(userInput,computerInput);
+ 
+console.log("Round "+ roundCounter + ":")
+var promptInput = prompt("Chose: Rock, Paper, Scissors\nEnter here:").toLowerCase();
+userInput = getPlayerInput(promptInput);
+console.log("You chose: " + userInput)
+var computerInput = getComputerResult();
+playRound(userInput,computerInput);
  roundCounter++;
- }
+ 
  if (userWins > computerWins){
      console.log("You Have WON The Game! Final Result:\nUser: "+ userWins + " Computer: " + computerWins)
  } else if (userWins < computerWins){
@@ -109,6 +120,7 @@ function game(){
  // if the computer has more points, the computer wins
 
 }
+
 /// adds point to computer wins
 function computerBoard(){
  computerWins++;
