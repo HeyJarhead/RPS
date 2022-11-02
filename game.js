@@ -4,6 +4,7 @@
  var userWins = 0;
  var computerWins = 0;
 
+ /// DOM Methods
 const buttons = document.querySelectorAll('button');
 const result = document.createElement('div');
 result.classList.add('result');
@@ -68,12 +69,12 @@ buttons.forEach((button) => {
     if (userWins === 5){
         score.textContent = "The User has won the game\n Final Score\n User: " + userWins + "\n Computer: " + computerWins;
         btnContainer.appendChild(score);
-        result.textContent = "";
+        result.textContent = "Refresh to play again!";
         btnContainer.appendChild(result); 
     } else if (computerWins === 5){
         score.textContent = "The Computer has won the game\n Final Score\n User: " + userWins + "\n Computer: " + computerWins;
         btnContainer.appendChild(score);
-        result.textContent = "";
+        result.textContent = "Refresh to play again!";
         btnContainer.appendChild(result); 
     } else
      // if statements
