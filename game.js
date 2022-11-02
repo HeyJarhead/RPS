@@ -65,6 +65,17 @@ buttons.forEach((button) => {
  }
  // compare choices 
  function playRound(playerSelection, computerSelection){
+    if (userWins === 5){
+        score.textContent = "The User has won the game\n Final Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
+        result.textContent = "";
+        btnContainer.appendChild(result); 
+    } else if (computerWins === 5){
+        score.textContent = "The Computer has won the game\n Final Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
+        result.textContent = "";
+        btnContainer.appendChild(result); 
+    } else
      // if statements
      if (playerSelection === "Paper" && computerSelection === "Rock"){
         userBoard();
