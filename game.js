@@ -5,7 +5,8 @@
  var computerWins = 0;
 
 const buttons = document.querySelectorAll('button');
-
+const result = document.createElement('div');
+result.classList.add('result');
 /// Event Listeners 
 buttons.forEach((button) => {
     var playerChoice;
@@ -62,27 +63,35 @@ buttons.forEach((button) => {
  function playRound(playerSelection, computerSelection){
      // if statements
      if (playerSelection === "Paper" && computerSelection === "Rock"){
-         console.log("Computer chose Rock\nYou Win! Paper beats Rock!")
+         result.textContent = "Computer chose Rock\nYou Win! Paper beats Rock!";
+         btnContainer.appendChild(result);
          userBoard();
      } else if (playerSelection === "Rock" && computerSelection === "Scissors"){
-         console.log("Computer chose Scissors\nYou Win! Rock beats Scissors!")
+        result.textContent = "Computer chose Scissors\nYou Win! Rock beats Scissors!";
+        btnContainer.appendChild(result);
          userBoard();
      } else if (playerSelection === "Scissors" && computerSelection === "Paper"){
-         console.log("Computer chose Paper\nYou Win! Scissors beat Paper!")
+        result.textContent = "Computer chose Paper\nYou Win! Scissors beat Paper!";
+        btnContainer.appendChild(result);
          userBoard();
      }  else if (playerSelection === "Rock" && computerSelection === "Paper"){
-         console.log("Computer chose Paper\nYou Lose! Paper beats Rock!")
+        result.textContent = "Computer chose Paper\nYou Lose! Paper beats Rock!";
+        btnContainer.appendChild(result);
          computerBoard();
      }  else if (playerSelection === "Scissors" && computerSelection === "Rock"){
-         console.log("Computer chose Rock\nYou Lose! Rock beat Scissors!")
+        result.textContent = "Computer chose Rock\nYou Lose! Rock beat Scissors!";
+        btnContainer.appendChild(result);
          computerBoard();
      } else if (playerSelection === "Paper" && computerSelection === "Scissors"){
-         console.log("Computer chose Scissors\nYou Lose! Scissors beat paper!")
+        result.textContent = "Computer chose Scissors\nYou Lose! Scissors beat paper!";
+        btnContainer.appendChild(result);
          computerBoard();
      } else if (playerSelection === computerSelection){
-         console.log("You both chose the same thing, Tie!")
+        result.textContent =" You both chose the same thing, Tie!";
+        btnContainer.appendChild(result);
      } else if (playerSelection === null){
-         console.log("Your choice is not valid, Computer Wins!")
+        result.textContent = "Your choice is not valid, Computer Wins!";
+        btnContainer.appendChild(result);
          computerBoard();
      }
      // User beats rock 
