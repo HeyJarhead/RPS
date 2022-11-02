@@ -7,6 +7,10 @@
 const buttons = document.querySelectorAll('button');
 const result = document.createElement('div');
 result.classList.add('result');
+const score = document.createElement('div');
+score.classList.add('score');
+
+
 /// Event Listeners 
 buttons.forEach((button) => {
     var playerChoice;
@@ -63,30 +67,44 @@ buttons.forEach((button) => {
  function playRound(playerSelection, computerSelection){
      // if statements
      if (playerSelection === "Paper" && computerSelection === "Rock"){
+        userBoard();
+        score.textContent = "Current Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
          result.textContent = "Computer chose Rock\nYou Win! Paper beats Rock!";
          btnContainer.appendChild(result);
-         userBoard();
      } else if (playerSelection === "Rock" && computerSelection === "Scissors"){
+        userBoard();
+        score.textContent = "Current Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
         result.textContent = "Computer chose Scissors\nYou Win! Rock beats Scissors!";
         btnContainer.appendChild(result);
-         userBoard();
      } else if (playerSelection === "Scissors" && computerSelection === "Paper"){
+        userBoard();
+        score.textContent = "Current Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
         result.textContent = "Computer chose Paper\nYou Win! Scissors beat Paper!";
         btnContainer.appendChild(result);
-         userBoard();
      }  else if (playerSelection === "Rock" && computerSelection === "Paper"){
+        computerBoard();
+        score.textContent = "Current Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
         result.textContent = "Computer chose Paper\nYou Lose! Paper beats Rock!";
         btnContainer.appendChild(result);
-         computerBoard();
      }  else if (playerSelection === "Scissors" && computerSelection === "Rock"){
+        computerBoard();
+        score.textContent = "Current Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
         result.textContent = "Computer chose Rock\nYou Lose! Rock beat Scissors!";
         btnContainer.appendChild(result);
-         computerBoard();
      } else if (playerSelection === "Paper" && computerSelection === "Scissors"){
+        computerBoard();
+        score.textContent = "Current Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
         result.textContent = "Computer chose Scissors\nYou Lose! Scissors beat paper!";
         btnContainer.appendChild(result);
-         computerBoard();
      } else if (playerSelection === computerSelection){
+        score.textContent = "Current Score\n User: " + userWins + "\n Computer: " + computerWins;
+        btnContainer.appendChild(score);
         result.textContent =" You both chose the same thing, Tie!";
         btnContainer.appendChild(result);
      } else if (playerSelection === null){
